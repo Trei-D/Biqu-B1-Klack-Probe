@@ -1,42 +1,76 @@
-# Installation Guide
+# KlackEnder-Probe Installation Guide for Biqu B1
 
 ## Prerequisites
-- Printed parts
-- Required hardware (see [BOM.md](https://kevinakasam.com/klack-bom/))
-- Klipper firmware installed
+- All printed parts from the STL directory
+- Required hardware components ([See BOM](https://kevinakasam.com/klack-bom/))
+- Klipper firmware installed and operational
+- Basic knowledge of Klipper configuration
 
-## Hardware Installation
-1. [Probe Mount](https://kevinakasam.com/lets-build-the-probe-mount/)
-2. [Probe Retainer](https://kevinakasam.com/lets-build-the-probe-retainer/)
-3. [Probe Dock](https://kevinakasam.com/lets-build-the-probe-dock/)
+## Hardware Assembly
+Follow these guides in order:
+1. [Probe Mount Assembly](https://kevinakasam.com/lets-build-the-probe-mount/)
+2. [Probe Retainer Assembly](https://kevinakasam.com/lets-build-the-probe-retainer/)
+3. [Probe Dock Assembly](https://kevinakasam.com/lets-build-the-probe-dock/)
 
+## Software Configuration
 
-## Software Setup
-Klipper 
+### 1. Installing Demon Klipper Essential Unified
 
-1. Demon Klipper Essential Unified + KlackB1-Probe Macros
+1. Install [Demon_Klipper_Essentials_Unified](https://github.com/3DPrintDemon/Demon_Klipper_Essentials_Unified/tree/main)
+   - Follow the repository's installation instructions
+   - Pay special attention to the [Klicky Probe setup section](https://github.com/3DPrintDemon/Demon_Klipper_Essentials_Unified/blob/main/Documentation/INSTALL_INSTRUCTIONS/General%20_Setup_For_All_Printers/INSTALL_INSTRUCTIONS.md#unless-youre-using-klicky-probe)
 
-1.1. Install [Demon_Klipper_Essentials_Unified](https://github.com/3DPrintDemon/Demon_Klipper_Essentials_Unified/tree/main) by following the instructions from the repository.
+2. Set up KlackB1-Probe Macros:
+   ```bash
+   # In your Klipper config directory:
+   mkdir KlackB1
+   # Copy the macros from this repository to KlackB1 folder
+   ```
 
-1.2. Be sure to follow the instructions from this [step](https://github.com/3DPrintDemon/Demon_Klipper_Essentials_Unified/blob/main/Documentation/INSTALL_INSTRUCTIONS/General%20_Setup_For_All_Printers/INSTALL_INSTRUCTIONS.md#unless-youre-using-klicky-probe) 
+3. Edit your `printer.cfg`:
+   ```yaml
+   [include KlackB1/klicky-probe.cfg]
+   ```
 
-1.3. Create a new directory in config folder with the name KlackB1
+### 2. Configuring KevinAkaSam Firmware
 
-1.4. Copy the macros from this repository into KlackB1 folder
+1. Add the following to your `printer.cfg`:
+   ```yaml
+   [include KlackB1.cfg]
+   
+   [stepper_z]
+   endstop_pin: probe:z_virtual_endstop   # Enable probe as Z-endstop
+   #position_endstop: 0                   # Comment out or remove this line
+   position_min: -10                      # Set to negative probe z_offset value
+   
+   [stepper_x]
+   position_max: 235                      # Ensures full probe dock access
+   ```
 
-1.5. Edit printer.cfg by adding this line [include KlackB1/klicky-probe.cfg]
+2. Create `KlackB1.cfg` in your config directory
 
-2. KevinAkaSam firmware
+## Important Notes
 
-2.1. Open printer.cfg file and add the line [include KlackB1.cfg] and make these changes:
-```yaml
-[stepper_z]
-endstop_pin: probe:z_virtual_endstop #if you want to use the Prove as z-endstop (You can unsinstall the stock z endstop then. If not, remove the [homing_override])
-#position_endstop: 0 #remove this or uncomment it with a #
-position_min: -10 # set a negative value (minimum as the probe z_offset)
+- If using the probe as Z-endstop, you may remove the stock Z-endstop
+- If the X-axis screw interferes with the metal plate, rotate the screw 180 degrees
+- Always test probe attachment and docking at low speeds initially
+- Back up your configuration files before making changes
 
+## Verification Steps
 
-[stepper_x]
-position_max: 235 #Your printhead have to move all the way to the right to pickup the probe. If your screw collides with the metal plate, simply flip it around.
-```
-2.2. Add KlackB1.cfg file in your config directory
+After completing the installation:
+1. Verify all probe connections
+2. Test probe attachment/detachment manually
+3. Perform a test probe accuracy check
+4. Create and verify bed mesh
+
+## Support
+
+If you encounter issues:
+- Check the [Troubleshooting Guide](link-to-troubleshooting)
+- Visit the [Project Discussion Board](link-to-discussions)
+- Review [Common Problems & Solutions](link-to-faq)
+
+## License
+
+This modification is released under the same license as the original KlackEnder-Probe project.
