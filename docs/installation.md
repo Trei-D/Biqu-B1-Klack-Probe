@@ -14,18 +14,16 @@ Follow these guides in order:
 
 ## Software Configuration
 
-### 1. Installing Demon Klipper Essential Unified
+### 1. Installing Demon Klipper Essential Unified & KlackB1-Probe Macros
 
 1. Install [Demon_Klipper_Essentials_Unified](https://github.com/3DPrintDemon/Demon_Klipper_Essentials_Unified/tree/main)
    - Follow the repository's installation instructions
    - Pay special attention to the [Klicky Probe setup section](https://github.com/3DPrintDemon/Demon_Klipper_Essentials_Unified/blob/main/Documentation/INSTALL_INSTRUCTIONS/General%20_Setup_For_All_Printers/INSTALL_INSTRUCTIONS.md#unless-youre-using-klicky-probe)
 
 2. Set up KlackB1-Probe Macros:
-   ```bash
-   # In your Klipper config directory:
-   mkdir KlackB1
-   # Copy the macros from this repository to KlackB1 folder
-   ```
+   - Create a new directory in config folder with the name KlackB1
+   - Copy the macros from this [repository](https://github.com/Trei-D/KlackB1-Probe-Macros) into KlackB1 folder
+
 
 3. Edit your `printer.cfg`:
    ```yaml
