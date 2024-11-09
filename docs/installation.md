@@ -21,21 +21,22 @@ Follow these guides in order:
    - Pay special attention to the [Klicky Probe setup section](https://github.com/3DPrintDemon/Demon_Klipper_Essentials_Unified/blob/main/Documentation/INSTALL_INSTRUCTIONS/General%20_Setup_For_All_Printers/INSTALL_INSTRUCTIONS.md#unless-youre-using-klicky-probe)
 
 2. Set up KlackB1-Probe Macros:
-   - Create a new directory in config folder with the name KlackB1
+   - Create a new directory in `config` folder with the name `KlackB1`
    - Copy the macros from this [repository](https://github.com/Trei-D/KlackB1-Probe-Macros) into KlackB1 folder
 
 
-3. Edit your `printer.cfg`:
+3. Edit your `printer.cfg` by adding this line:
    ```yaml
    [include KlackB1/klicky-probe.cfg]
    ```
 
 ### 2. Configuring KevinAkaSam Firmware
 
-1. Add the following to your `printer.cfg`:
+1. Edit your `printer.cfg` by adding the following lines:
    ```yaml
    [include KlackB1.cfg]
-   
+   ```
+   ```yaml
    [stepper_z]
    endstop_pin: probe:z_virtual_endstop   # Enable probe as Z-endstop
    #position_endstop: 0                   # Comment out or remove this line
@@ -45,7 +46,7 @@ Follow these guides in order:
    position_max: 235                      # Ensures full probe dock access
    ```
 
-2. Create `KlackB1.cfg` in your config directory
+2. Upload [KlackB1.cfg](https://github.com/Trei-D/Biqu-B1-Klack-Probe/blob/main/Firmware/KlackB1.cfg) in your config directory
 
 ## Important Notes
 
@@ -62,12 +63,6 @@ After completing the installation:
 3. Perform a test probe accuracy check
 4. Create and verify bed mesh
 
-## Support
-
-If you encounter issues:
-- Check the [Troubleshooting Guide](link-to-troubleshooting)
-- Visit the [Project Discussion Board](link-to-discussions)
-- Review [Common Problems & Solutions](link-to-faq)
 
 ## License
 
