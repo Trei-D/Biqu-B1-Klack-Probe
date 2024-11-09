@@ -14,7 +14,7 @@ Follow these guides in order:
 
 ## Software Configuration
 
-### 1. Installing Demon Klipper Essential Unified & KlackB1-Probe Macros
+### 1. Demon Klipper Essential Unified & KlackB1-Probe Macros
 
 1. Install [Demon_Klipper_Essentials_Unified](https://github.com/3DPrintDemon/Demon_Klipper_Essentials_Unified/tree/main)
    - Follow the repository's installation instructions
@@ -30,7 +30,7 @@ Follow these guides in order:
    [include KlackB1/klicky-probe.cfg]
    ```
 
-### 2. Configuring KevinAkaSam Firmware
+### 2. KevinAkaSam Firmware
 
 1. Edit your `printer.cfg` by adding the following lines:
    ```yaml
