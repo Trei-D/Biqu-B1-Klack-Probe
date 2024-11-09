@@ -14,7 +14,7 @@ This probe can be integrated using:
 ## Installation
 1. Print required parts (see /STL folder)
 2. Gather materials (see [BOM.md](https://kevinakasam.com/klack-bom/) )
-3. Follow installation guide in docs/installation.md
+3. Follow installation guide in [docs/installation.md](docs/installation.md)
 
 ## Compatibility
 - Designed for Biqu B1
