@@ -30,7 +30,7 @@ Follow these guides in order:
    [include KlackB1/klicky-probe.cfg]
    ```
 
-### 2. KevinAkaSam Firmware
+### 2. KlackB1.cfg
 
 1. Edit your `printer.cfg` by adding the following lines:
    ```yaml
